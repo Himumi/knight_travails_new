@@ -2,6 +2,7 @@ require_relative '../lib/travails'
 
 describe Travails do
   subject(:game) { described_class.new }
+
   describe '#direction' do
     context 'when based position is D4 or [4, 3]' do
       it 'returns [3, 1] for direction 0' do
@@ -43,6 +44,18 @@ describe Travails do
 
       it 'returns nil if invalid input' do
         expect(game.direction([9, 9], 1)).to be_nil
+      end
+    end
+  end
+
+  describe '#add_all_directions' do
+    context 'when knight on right top corner of board [0, 0]' do
+      it 'has only 2 valid directions' do
+
+      end
+
+      it 'returns nil for direction 1 ( out of board )' do
+        
       end
     end
   end
