@@ -104,4 +104,7 @@ describe Travails do
       end
     end
   end
+
+  describe '#shortest_path' do
+  end
 end
