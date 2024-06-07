@@ -1,5 +1,5 @@
 class Travails
-  def travails(source, target)
+  def knight_moves(source, target)
     source = convert_to_indexes(source)
     target = convert_to_indexes(target)
 
@@ -11,7 +11,7 @@ class Travails
   end
 
   private
-  
+
   def shortest_path(source, target)
     recorder = {}
     queque = add_all_directions(source, recorder)
