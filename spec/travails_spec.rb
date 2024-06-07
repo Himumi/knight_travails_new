@@ -191,4 +191,7 @@ describe Travails do
 
   describe '#print_board' do
   end
+
+  describe '#travails' do
+  end
 end

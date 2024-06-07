@@ -129,4 +129,15 @@ class Travails
 
     puts letters
   end
+
+  def travails(source, target)
+    source = convert_to_indexes(source)
+    target = convert_to_indexes(target)
+
+    recorder = shortest_path(source, target)
+    tracker = track(source, target, recorder)
+
+    print_board(tracker)
+    print_path(tracker)
+  end
 end
