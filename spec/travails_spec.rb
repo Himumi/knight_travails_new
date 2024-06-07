@@ -143,4 +143,22 @@ describe Travails do
       end
     end
   end
+
+  describe '#convert_to_indexes' do
+    context 'when given corrected input (a8)' do
+      it 'returns [0, 0] as output' do
+        converted = game.convert_to_indexes("a8")
+
+        expect(converted).to eq([0, 0])
+      end
+    end
+
+    context 'when given incorrected input (99)' do
+      it 'returns nil as output' do
+        converted = game.convert_to_indexes("99")
+
+        expect(converted).to be_nil
+      end
+    end
+  end
 end
