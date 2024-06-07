@@ -42,4 +42,17 @@ class Travails
       queque += add_all_directions(child, recorder)
     end
   end
+
+  def track(source, target, recorder)
+    result = []
+    current = target
+
+    loop do
+      result.unshift(current)
+
+      return result if current.eql?(source)
+
+      current = recorder[current]
+    end
+  end
 end
