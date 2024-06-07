@@ -144,7 +144,7 @@ describe Travails do
     end
   end
 
-  describe '#convert_to_indexes' do
+  describe '#convert_to_key' do
     context 'when given corrected input (a8)' do
       it 'returns [0, 0] as output' do
         converted = game.convert_to_indexes("a8")
@@ -158,6 +158,30 @@ describe Travails do
         converted = game.convert_to_indexes("99")
 
         expect(converted).to be_nil
+      end
+    end
+  end
+
+  describe '#convert_to_key' do
+    context 'when given corrected input ([0,0])' do
+      it 'returns a8 as output' do
+        converted = game.convert_to_key([0, 0])
+
+        expect(converted).to eq("a8")
+      end
+    end
+
+    context 'when given incorrected input ([8, 8])' do
+      it 'returns nil as output' do
+        converted = game.convert_to_key([8, 8])
+
+        expect(converted).to be_nil
+      end
+
+      it 'returns nil when given 3 values array' do
+        converted = game.convert_to_key([0, 0, 0])
+
+        expect(converted).to be_nil 
       end
     end
   end
