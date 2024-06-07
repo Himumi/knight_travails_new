@@ -131,7 +131,7 @@ class Travails
       line = "  #{8 - row}  |" # Add letter for each row
 
       8.times do |column|
-        line += (tracker.include?([row, column]) ? " \u2658 |" : "   |" )
+        line += (tracker.include?([row, column]) ? " \u265E |" : "   |" )
 
         line += "  #{8 - row}" if column.eql?(7) # Add letter after last column
       end
