@@ -108,4 +108,25 @@ class Travails
 
     puts path
   end
+
+  def print_board(tracker)
+    letters = "       A   B   C   D   E   F   G   H  "
+    dashed = "     ---------------------------------"
+
+    puts letters, dashed
+
+    8.times do |row|
+      line = "  #{8 - row}  |" # Add letter for each row
+
+      8.times do |column|
+        line += (tracker.include?([row, column]) ? " \u2658 |" : "   |" )
+
+        line += "  #{8 - row}" if column.eql?(7) # Add letter after last column
+      end
+
+      puts line, dashed
+    end
+
+    puts letters
+  end
 end

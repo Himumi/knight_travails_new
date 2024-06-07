@@ -186,6 +186,9 @@ describe Travails do
     end
   end
 
-  describe 'print_path' do
+  describe '#print_path' do
+  end
+
+  describe '#print_board' do
   end
 end
