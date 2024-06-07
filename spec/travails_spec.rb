@@ -49,13 +49,58 @@ describe Travails do
   end
 
   describe '#add_all_directions' do
+    let(:recorder) { {} }
     context 'when knight on right top corner of board [0, 0]' do
-      it 'has only 2 valid directions' do
 
+      let(:directions) { game.add_all_directions([0, 0], recorder) }
+
+      it 'has only 2 valid directions' do
+        expect(directions.length).to eq(2)
       end
 
-      it 'returns nil for direction 1 ( out of board )' do
-        
+      it 'returns true for [2, 1]' do
+        adjacent = directions.any? { |i| i[0].eql?([2, 1]) }
+        expect(adjacent).to be true
+      end
+
+      it 'returns false for [1, 1]' do
+        adjacent = directions.any? { |i| i[0].eql?([1, 1]) }
+        expect(adjacent).to be false
+      end
+
+      it "stores knight's coordinate at second place" do
+        expect(directions[0][1]).to eq([0, 0])
+      end
+
+      it "does not store knight's coordinate at first place" do
+        expect(directions[0][0]).not_to eq([0, 0])
+      end
+    end
+
+    context 'when knight on middle of board [4, 4]' do
+
+      let(:directions) { game.add_all_directions([4, 4], recorder) }
+
+      it 'has 8 valid directions' do
+        expect(directions.length).to eq(8)
+      end
+
+      it 'returns true for [6, 5]' do
+        adjacent = directions.any? { |i| i[0].eql?([6, 5]) }
+        expect(adjacent).to be true
+      end
+
+      it 'returns false for [4, 5]' do
+        adjacent = directions.any? { |i| i[0].eql?([4, 5]) }
+        expect(adjacent).to be false
+      end
+
+      it "stores knight's coordinate at second place" do
+        expect(directions[0][1]).to eq([4, 4])
+      end
+
+      it "does not store knight's coordinate at first place" do
+        expect(directions[0][0]).not_to eq([4, 4])
       end
     end
   end
