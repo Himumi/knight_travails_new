@@ -1,30 +1,17 @@
 class Travails
+  def travails(source, target)
+    source = convert_to_indexes(source)
+    target = convert_to_indexes(target)
 
-  def direction(root, way)
-    a, b = root[0], root[1]
+    recorder = shortest_path(source, target)
+    tracker = track(source, target, recorder)
 
-    paths = [
-      [a-1, b-2], [a-2, b-1], [a-2, b+1], [a-1, b+2],
-      [a+1, b+2], [a+2, b+1], [a+2, b-1], [a+1, b-2]
-    ]
-
-    return nil if paths[way].any? { |i| !i.between?(0, 7) }
-
-    paths[way]
+    print_board(tracker)
+    print_path(tracker)
   end
 
-  def add_all_directions(source, recorder)
-    result = []
-
-    8.times do |way|
-      adjacent = direction(source, way)
-
-      result << [adjacent, source] if !adjacent.nil? and !recorder[adjacent]
-    end
-
-    result
-  end
-
+  private
+  
   def shortest_path(source, target)
     recorder = {}
     queque = add_all_directions(source, recorder)
@@ -54,6 +41,31 @@ class Travails
 
       current = recorder[current]
     end
+  end
+
+  def direction(root, way)
+    a, b = root[0], root[1]
+
+    paths = [
+      [a-1, b-2], [a-2, b-1], [a-2, b+1], [a-1, b+2],
+      [a+1, b+2], [a+2, b+1], [a+2, b-1], [a+1, b-2]
+    ]
+
+    return nil if paths[way].any? { |i| !i.between?(0, 7) }
+
+    paths[way]
+  end
+
+  def add_all_directions(source, recorder)
+    result = []
+
+    8.times do |way|
+      adjacent = direction(source, way)
+
+      result << [adjacent, source] if !adjacent.nil? and !recorder[adjacent]
+    end
+
+    result
   end
 
   def convert_to_indexes(key)
@@ -128,16 +140,5 @@ class Travails
     end
 
     puts letters
-  end
-
-  def travails(source, target)
-    source = convert_to_indexes(source)
-    target = convert_to_indexes(target)
-
-    recorder = shortest_path(source, target)
-    tracker = track(source, target, recorder)
-
-    print_board(tracker)
-    print_path(tracker)
   end
 end
