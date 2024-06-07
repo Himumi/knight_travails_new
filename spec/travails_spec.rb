@@ -181,8 +181,11 @@ describe Travails do
       it 'returns nil when given 3 values array' do
         converted = game.convert_to_key([0, 0, 0])
 
-        expect(converted).to be_nil 
+        expect(converted).to be_nil
       end
     end
+  end
+
+  describe 'print_path' do
   end
 end

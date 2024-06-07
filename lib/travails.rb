@@ -95,4 +95,17 @@ class Travails
 
     "#{letter}#{number}"
   end
+
+  def print_path(tracker)
+    path = ""
+    last = tracker.length - 1
+
+    tracker.each_with_index do |item, i|
+      converted = convert_to_key(item)
+
+      path += (i.eql?(last) ? " #{converted}" : " #{converted} " + ">" * (i + 1))
+    end
+
+    puts path
+  end
 end
