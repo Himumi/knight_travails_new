@@ -74,4 +74,25 @@ class Travails
 
     [number, letter]
   end
+
+  def convert_to_key(index)
+    return nil unless index.length.eql?(2)
+
+    letters = {
+      0 => 'a', 1 => 'b', 2 => 'c', 3 => 'd',
+      4 => 'e', 5 => 'f', 6 => 'g', 7 => 'h'
+    }
+
+    numbers = {
+      0 => '8', 1 => '7', 2 => '6', 3 => '5',
+      4 => '4', 5 => '3', 6 => '2', 7 => '1'
+    }
+
+    number = numbers[index[0]]
+    letter = letters[index[1]]
+
+    return nil if number.nil? or letter.nil?
+
+    "#{letter}#{number}"
+  end
 end
