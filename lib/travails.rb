@@ -14,10 +14,10 @@ class Travails
 
   def shortest_path(source, target)
     recorder = {}
-    queque = add_all_directions(source, recorder)
+    queue = add_all_directions(source, recorder)
 
     loop do
-      first = queque.shift
+      first = queue.shift
       child, parent = first[0], first[1]
 
       next if recorder[child]
@@ -26,7 +26,7 @@ class Travails
 
       return recorder if child.eql?(target)
 
-      queque += add_all_directions(child, recorder)
+      queue += add_all_directions(child, recorder)
     end
   end
 
