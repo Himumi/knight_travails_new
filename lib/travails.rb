@@ -14,7 +14,7 @@ class Travails
 
   def shortest_path(source, target)
     recorder = {}
-    queue = add_all_directions(source, recorder)
+    queue = add_all_directions_of(source, recorder)
 
     loop do
       first = queue.shift
@@ -26,7 +26,7 @@ class Travails
 
       return recorder if child.eql?(target)
 
-      queue += add_all_directions(child, recorder)
+      queue += add_all_directions_of(child, recorder)
     end
   end
 
@@ -56,7 +56,7 @@ class Travails
     paths[way]
   end
 
-  def add_all_directions(source, recorder)
+  def add_all_directions_of(source, recorder)
     result = []
 
     8.times do |way|

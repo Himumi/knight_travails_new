@@ -48,11 +48,11 @@ describe Travails do
     end
   end
 
-  describe '#add_all_directions' do
+  describe '#add_all_directions_of' do
     let(:recorder) { {} }
     context 'when knight on right top corner of board [0, 0]' do
 
-      let(:directions) { game.add_all_directions([0, 0], recorder) }
+      let(:directions) { game.add_all_directions_of([0, 0], recorder) }
 
       it 'has only 2 valid directions' do
         expect(directions.length).to eq(2)
@@ -79,7 +79,7 @@ describe Travails do
 
     context 'when knight on middle of board [4, 4]' do
 
-      let(:directions) { game.add_all_directions([4, 4], recorder) }
+      let(:directions) { game.add_all_directions_of([4, 4], recorder) }
 
       it 'has 8 valid directions' do
         expect(directions.length).to eq(8)
