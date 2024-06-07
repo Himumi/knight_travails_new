@@ -107,4 +107,40 @@ describe Travails do
 
   describe '#shortest_path' do
   end
+
+  describe '#track' do
+    let(:recorder) {
+      {
+        [4, 4] => [3, 3],
+        [3, 3] => [2, 2],
+        [2, 2] => [1, 1],
+        [1, 1] => [0, 0],
+        [7, 7] => [0, 0]
+      }
+    }
+
+    let(:tracker) { game.track([0, 0], [4, 4], recorder) }
+
+    context 'when tracking back from recorder' do
+      it 'has 5 values' do
+        expect(tracker.length).to eq(5)
+      end
+
+      it 'has [4, 4] at last of list' do
+        expect(tracker.last).to eq([4, 4])
+      end
+
+      it 'has [0, 0] at first of list' do
+        expect(tracker.first).to eq([0, 0])
+      end
+
+      it 'includes [2, 2] as value' do
+        expect(tracker.include?([2, 2])).to be true
+      end
+
+      it 'has not [7, 7] as value' do
+        expect(tracker.include?([7, 7])).not_to be true
+      end
+    end
+  end
 end
