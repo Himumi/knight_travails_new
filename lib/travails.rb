@@ -12,7 +12,7 @@ class Travails
 
   private
 
-  # return list of {child => parent}
+  # return list of hash  'child => parent'
   def shortest_path(source, target)
     recorder = {}
     queue = add_all_directions_of(source, recorder)
@@ -33,6 +33,8 @@ class Travails
 
   # return path from source to target based 'shortest_path' method
   # [[sourcer], [path], [target]]
+
+  # trace from target until source
   def track(source, target, recorder)
     result = []
     current = target
