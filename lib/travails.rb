@@ -47,7 +47,7 @@ class Travails
   end
 
   # return next direction of source specifically
-  def direction(root, way)
+  def direction_of(root, way)
     a, b = root[0], root[1]
 
     paths = [
@@ -66,7 +66,7 @@ class Travails
     result = []
 
     8.times do |way|
-      adjacent = direction(source, way)
+      adjacent = direction_of(source, way)
 
       result << [adjacent, source] if !adjacent.nil? and !recorder[adjacent]
     end
