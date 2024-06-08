@@ -12,6 +12,7 @@ class Travails
 
   private
 
+  # return list of hash  'child => parent'
   def shortest_path(source, target)
     recorder = {}
     queue = add_all_directions_of(source, recorder)
@@ -30,6 +31,10 @@ class Travails
     end
   end
 
+  # return path from source to target based 'shortest_path' method
+  # [[sourcer], [path], [target]]
+
+  # trace from target until source
   def track(source, target, recorder)
     result = []
     current = target
@@ -43,7 +48,8 @@ class Travails
     end
   end
 
-  def direction(root, way)
+  # return next direction of source specifically
+  def direction_of(root, way)
     a, b = root[0], root[1]
 
     paths = [
@@ -56,11 +62,13 @@ class Travails
     paths[way]
   end
 
+  # return list of next directions that is not in recorder and not nil
+  # reduce list before add it to queue
   def add_all_directions_of(source, recorder)
     result = []
 
     8.times do |way|
-      adjacent = direction(source, way)
+      adjacent = direction_of(source, way)
 
       result << [adjacent, source] if !adjacent.nil? and !recorder[adjacent]
     end
@@ -108,6 +116,7 @@ class Travails
     "#{letter}#{number}"
   end
 
+  # print like this 'a0 > a1 >> a2 >>> a3'
   def print_path(tracker)
     path = ""
     last = tracker.length - 1
