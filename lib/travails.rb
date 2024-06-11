@@ -32,7 +32,7 @@ class Travails
   end
 
   # return path from source to target based 'shortest_path' method
-  # [[sourcer], [path], [target]]
+  # [[source], [path], [target]]
 
   # trace from target until source
   def track(source, target, recorder)
