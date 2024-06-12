@@ -70,7 +70,7 @@ class Travails
     8.times do |way|
       adjacent = direction_of(source, way)
 
-      result << [adjacent, source] if !adjacent.nil? and !recorder[adjacent]
+      result << [adjacent, source] if !adjacent.nil? && !recorder[adjacent]
     end
 
     result
@@ -90,7 +90,7 @@ class Travails
     letter = letters[key[0]]
     number = numbers[key[1]]
 
-    return nil if letter.nil? or number.nil?
+    return nil if letter.nil? || number.nil?
 
     [number, letter]
   end
@@ -111,7 +111,7 @@ class Travails
     number = numbers[index[0]]
     letter = letters[index[1]]
 
-    return nil if number.nil? or letter.nil?
+    return nil if number.nil? || letter.nil?
 
     "#{letter}#{number}"
   end
