@@ -25,7 +25,7 @@ class Travails
 
       recorder[child] = parent
 
-      return recorder if child.eql?(target)
+      return recorder if child == target
 
       queue += add_all_directions_of(child, recorder)
     end
@@ -42,7 +42,7 @@ class Travails
     loop do
       result.unshift(current)
 
-      return result if current.eql?(source)
+      return result if current == source
 
       current = recorder[current]
     end
@@ -96,7 +96,7 @@ class Travails
   end
 
   def convert_to_key(index)
-    return nil unless index.length.eql?(2)
+    return nil unless index.length == 2
 
     letters = {
       0 => 'a', 1 => 'b', 2 => 'c', 3 => 'd',
@@ -124,7 +124,7 @@ class Travails
     tracker.each_with_index do |item, i|
       converted = convert_to_key(item)
 
-      path += (i.eql?(last) ? " #{converted}" : " #{converted} " + ">" * (i + 1))
+      path += (i == last ? " #{converted}" : " #{converted} " + ">" * (i + 1))
     end
 
     puts path
@@ -142,7 +142,7 @@ class Travails
       8.times do |column|
         line += (tracker.include?([row, column]) ? " \u265E |" : "   |" )
 
-        line += "  #{8 - row}" if column.eql?(7) # Add letter after last column
+        line += "  #{8 - row}" if column == 7 # Add letter after last column
       end
 
       puts line, dashed
