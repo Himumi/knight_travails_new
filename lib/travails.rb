@@ -1,4 +1,23 @@
 class Travails
+  def get_input
+    message = "You got wrong!! please input again"
+    loop do
+      input  = gets.chomp.split(" ")
+      
+      next puts message if input.length != 2
+
+      return input if valid_input?(input[0]) && valid_input?(input[1])
+    end
+  end
+
+  def valid_input?(input)
+    return false unless input.size == 2
+
+    a, b = input[0], input[1]
+
+    a.between?("a", "h") && b.between?("0", "8")
+  end
+  
   def knight_moves(source, target)
     source = convert_to_indexes(source)
     target = convert_to_indexes(target)
