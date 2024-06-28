@@ -12,6 +12,8 @@ class Travails
     end
   end
 
+  private
+
   def introduction
     puts <<-HEREDOC
 
@@ -39,6 +41,7 @@ class Travails
         1  | ♞ |   |   |   |   |   |   |   |  1
           ---------------------------------
             A   B   C   D   E   F   G   H
+
       a1 > b3 >> a5 >>> b7 >>>> d8 >>>>> f7 >>>>>> h8
 
       You just have to put source and destination
@@ -54,15 +57,15 @@ class Travails
   end
 
   def exit_feedback
-    puts "Ok Bye!!!"
+    puts "\nOk Bye!!!"
   end
 
   def next_game_feedback
-    puts "Input to play again or 'exit' to game over"
+    puts "\nInput to play again or 'exit' to game over"
   end
 
   def get_input
-    message = "You got wrong!! please input again"
+    message = "\nYou got wrong!! please input again"
     loop do
       input  = gets.chomp.split(" ")
 
@@ -93,11 +96,11 @@ class Travails
     recorder = shortest_path(source, target)
     tracker = track(source, target, recorder)
 
+    puts ""
     print_board(tracker)
+    puts ""
     print_path(tracker)
   end
-
-  private
 
   # return list of hash  'child => parent'
   def shortest_path(source, target)
