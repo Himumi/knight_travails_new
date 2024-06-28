@@ -176,6 +176,8 @@ class Travails
       next puts message if input.length != 2 or input[0] == input[1]
 
       return input if valid_input?(input[0]) && valid_input?(input[1])
+
+      puts message # display when user gets wrong input
     end
   end
 
