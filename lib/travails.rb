@@ -158,9 +158,9 @@ class Travails
     result = []
 
     8.times do |way|
-      adjacent = direction_of(source, way)
+      direction = direction_of(source, way)
 
-      result << [adjacent, source] if !adjacent.nil? && !recorder[adjacent]
+      result << [direction, source] if !direction.nil? && !recorder[direction]
     end
 
     result
