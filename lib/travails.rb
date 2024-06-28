@@ -68,7 +68,7 @@ class Travails
 
       return input if exit?(input)
 
-      next puts message if input.length != 2
+      next puts message if input.length != 2 or input[0] == input[1]
 
       return input if valid_input?(input[0]) && valid_input?(input[1])
     end
