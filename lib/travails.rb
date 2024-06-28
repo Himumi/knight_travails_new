@@ -1,8 +1,22 @@
 class Travails
+  def play
+    puts "please source and destination knight"
+    puts "h1 space a8 => h1 a8"
+    loop do 
+      input = get_input
+
+      return if input == "exit"
+
+      knight_moves(input[0], input[1])
+    end
+  end
+
   def get_input
     message = "You got wrong!! please input again"
     loop do
       input  = gets.chomp.split(" ")
+
+      return input.first if input.first == "exit"
       
       next puts message if input.length != 2
 
