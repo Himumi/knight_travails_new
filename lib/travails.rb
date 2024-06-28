@@ -206,7 +206,7 @@ class Travails
     "#{letter}#{number}"
   end
 
-  # print like this 'a0 > a1 >> a2 >>> a3'
+  # print 'a0 > a1 >> a2 >>> a3'
   def print_path(tracker)
     path = ""
     last = tracker.length - 1
