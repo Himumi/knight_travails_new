@@ -4,7 +4,7 @@ class Travails
     loop do
       input = get_input
 
-      return if input == "exit"
+      return exit_feedback if exit?(input)
 
       knight_moves(input[0], input[1])
 
@@ -53,12 +53,16 @@ class Travails
     HEREDOC
   end
 
+  def exit_feedback
+    puts "Ok Bye!!!"
+  end
+
   def get_input
     message = "You got wrong!! please input again"
     loop do
       input  = gets.chomp.split(" ")
 
-      return input.first if exit?(input)
+      return input if exit?(input)
 
       next puts message if input.length != 2
 
