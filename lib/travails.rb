@@ -58,7 +58,7 @@ class Travails
     loop do
       input  = gets.chomp.split(" ")
 
-      return input.first if input.first == "exit"
+      return input.first if exit?(input)
 
       next puts message if input.length != 2
 
@@ -72,6 +72,10 @@ class Travails
     a, b = input[0], input[1]
 
     a.between?("a", "h") && b.between?("0", "8")
+  end
+
+  def exit?(input)
+    input.first == "exit"
   end
 
   def knight_moves(source, target)
