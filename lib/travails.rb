@@ -184,7 +184,7 @@ class Travails
 
     a, b = input[0], input[1]
 
-    a.between?("a", "h") && b.between?("0", "8")
+    a.between?("a", "h") && b.between?("1", "8")
   end
 
   def exit?(input)
