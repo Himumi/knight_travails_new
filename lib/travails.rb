@@ -8,7 +8,7 @@ class Travails
 
       knight_moves(input[0], input[1])
 
-      puts "Input to play again or 'exit' to game over"
+      next_game_feedback
     end
   end
 
@@ -55,6 +55,10 @@ class Travails
 
   def exit_feedback
     puts "Ok Bye!!!"
+  end
+
+  def next_game_feedback
+    puts "Input to play again or 'exit' to game over"
   end
 
   def get_input
