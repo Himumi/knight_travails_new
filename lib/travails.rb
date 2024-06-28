@@ -1,14 +1,56 @@
 class Travails
   def play
-    puts "please source and destination knight"
-    puts "h1 space a8 => h1 a8"
-    loop do 
+    puts introduction
+    loop do
       input = get_input
 
       return if input == "exit"
 
       knight_moves(input[0], input[1])
+
+      puts "Input to play again or 'exit' to game over"
     end
+  end
+
+  def introduction
+    puts <<-HEREDOC
+
+      This is knight Travails game that will provide you
+    the shortest path from source to destination.
+
+        From a1 to h8
+
+            A   B   C   D   E   F   G   H
+          ---------------------------------
+        8  |   |   |   | ♞ |   |   |   | ♞ |  8
+          ---------------------------------
+        7  |   | ♞ |   |   |   | ♞ |   |   |  7
+          ---------------------------------
+        6  |   |   |   |   |   |   |   |   |  6
+          ---------------------------------
+        5  | ♞ |   |   |   |   |   |   |   |  5
+          ---------------------------------
+        4  |   |   |   |   |   |   |   |   |  4
+          ---------------------------------
+        3  |   | ♞ |   |   |   |   |   |   |  3
+          ---------------------------------
+        2  |   |   |   |   |   |   |   |   |  2
+          ---------------------------------
+        1  | ♞ |   |   |   |   |   |   |   |  1
+          ---------------------------------
+            A   B   C   D   E   F   G   H
+      a1 > b3 >> a5 >>> b7 >>>> d8 >>>>> f7 >>>>>> h8
+
+      You just have to put source and destination
+    onto command line like
+
+      a1 space h8 => a1 h8
+
+    and to finish the game, just write 'exit'
+    on command line.
+
+    Please input source and destination.
+    HEREDOC
   end
 
   def get_input
@@ -17,7 +59,7 @@ class Travails
       input  = gets.chomp.split(" ")
 
       return input.first if input.first == "exit"
-      
+
       next puts message if input.length != 2
 
       return input if valid_input?(input[0]) && valid_input?(input[1])
@@ -31,7 +73,7 @@ class Travails
 
     a.between?("a", "h") && b.between?("0", "8")
   end
-  
+
   def knight_moves(source, target)
     source = convert_to_indexes(source)
     target = convert_to_indexes(target)
