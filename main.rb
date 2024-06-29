@@ -1,5 +1,5 @@
-require_relative 'lib/travails'
+require_relative 'lib/game'
 
-game = Travails.new
+game = Game.new
 
 game.play
